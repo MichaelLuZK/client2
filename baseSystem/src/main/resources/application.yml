@@ -1,0 +1,27 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/ #,http://localhost:8762/eureka/,http://localhost:8763/eureka/
+#  instance:
+#    hostname: clientName #将ip显示为这个名字
+spring:
+  application:
+    name: client
+  datasource:
+    driver-class-name: dm.jdbc.driver.DmDriver
+    url: jdbc:dm://192.168.1.133:5236/YH
+    username: YH
+    password: dev1234!@#$
+    type: com.alibaba.druid.pool.DruidDataSource
+  redis:
+    host: 127.0.0.1
+    port: 6379
+  resources:
+    add-mappings: false #不要为我们工程中的资源文件建立映射
+  mvc:
+    throw-exception-if-no-handler-found: true #出现错误时, 直接抛出异常,测试异常拦截器
+mybatis-plus:
+  type-aliases-package: com.casic.yh.domain
+  mapper-locations: classpath*:mapper/*Mapper.xml
+server:
+  port: 8764
